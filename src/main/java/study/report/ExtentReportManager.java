@@ -108,41 +108,9 @@ public class ExtentReportManager {
      */
     public static void addScreenShot(Status status, String message) {
         String base64Image = "data:image/png;base64," + ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
-
-        //Base64 from Screenshot of Selenium
-        //ExtentTestManager.getExtentTest().log(status, MediaEntityBuilder.createScreenCaptureFromBase64String(base64Image).build());
-
-        //File Path from Screenshot of Java
-//        ExtentTestManager.getExtentTest().log(status, MediaEntityBuilder.createScreenCaptureFromPath(CaptureHelpers.getScreenshotAbsolutePath(message)).build());
-
     }
 
-//    synchronized public static void addAuthors(AuthorType[] authors) {
-//        if (authors == null) {
-//            ExtentTestManager.getExtentTest().assignAuthor("ANHTESTER");
-//        } else {
-//            for (AuthorType author : authors) {
-//                ExtentTestManager.getExtentTest().assignAuthor(author.toString());
-//            }
-//        }
-//    }
-
-    // public static void addCategories(String[] categories) {
-//    synchronized public static void addCategories(CategoryType[] categories) {
-//        if (categories == null) {
-//            ExtentTestManager.getExtentTest().assignCategory("REGRESSION");
-//        } else {
-//            // for (String category : categories) {
-//            for (CategoryType category : categories) {
-//                ExtentTestManager.getExtentTest().assignCategory(category.toString());
-//            }
-//        }
-//    }
-
     synchronized public static void addDevices() {
-//        ExtentTestManager.getExtentTest().assignDevice(BrowserInfoUtils.getBrowserInfo());
-//		ExtentReportManager.getExtentTest()
-//				.assignDevice(BrowserIconUtils.getBrowserIcon() + " : " + BrowserInfoUtils.getBrowserInfo());
     }
 
     public static void logMessage(String message) {
