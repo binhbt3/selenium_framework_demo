@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression Test" parallel="tests">
+
+    <listeners>
+        <listener class-name="study.listeners.TestListener"></listener>
+        <listener class-name="study.listeners.AnnotationTransformer"></listener>
+    </listeners>
+
+    <test name="Test Place Orders">
+        <classes>
+            <class name="study.projects.greenkart.testcases.testPlaceOrders"></class>
+        </classes>
+    </test>
+    <test name="Test Search Item">
+        <classes>
+            <class name="study.projects.greenkart.testcases.testSearchItem"></class>
+        </classes>
+    </test>
+</suite>
+

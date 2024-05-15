@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Test Ticket Module Green Kart">
+
+    <listeners>
+        <listener class-name="study.listeners.TestListener"></listener>
+        <listener class-name="study.listeners.AnnotationTransformer"></listener>
+    </listeners>
+
+    <test name="Test Ticket Module Green Kart">
+        <classes>
+            <class name="study.projects.greenkart.testcases.testPlaceOrders"></class>
+        </classes>
+    </test>
+</suite>
