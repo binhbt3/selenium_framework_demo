@@ -511,6 +511,13 @@ public class WebUI {
         return false;
     }
 
+    /**
+     * Verify giá trị trong dropdown với dạng động (không phải Select Option thuần)
+     *
+     * @param objectListItem là locator của list item dạng đối tượng By
+     * @param text           giá trị cần chọn dạng Text của item
+     * @return true/false
+     */
     public static boolean verifyOptionDynamicExist(By objectListItem, String text) {
         smartWait();
 
@@ -530,11 +537,19 @@ public class WebUI {
         return false;
     }
 
+    /**
+     * Verify tổng số giá trị trong dropdown với dạng động (không phải Select Option thuần)
+     *
+     * @param objectListItem là locator của list item dạng đối tượng By
+     * @param text           giá trị cần chọn dạng Text của item
+     * @return tổng số giá trị trong dropdown
+     */
     public static int getOptionDynamicTotal(By objectListItem) {
         smartWait();
 
         try {
             List<WebElement> elements = getWebElements(objectListItem);
+            LogUtils.info("Total options is: " + elements.size());
             return elements.size();
         } catch (Exception e) {
             LogUtils.info(e.getMessage());
@@ -544,33 +559,64 @@ public class WebUI {
     }
 
     //Dropdown (Select Option)
+    /**
+     * Select option in dropdown by text(Select Option thuần)
+     *
+     * @param by             là locator của list item dạng đối tượng By
+     * @param text           giá trị cần chọn dạng Text của item
+     */
     public static void selectOptionByText(By by, String text) {
         smartWait();
+        LogUtils.info("Select Option by Text: %s".formatted(text));
         Select select = new Select(getWebElement(by));
         select.selectByVisibleText(text);
     }
 
+    /**
+     * Select option in dropdown by value(Select Option thuần)
+     *
+     * @param by             là locator của list item dạng đối tượng By
+     * @param value           giá trị cần chọn dạng value của item
+     */
     public static void selectOptionByValue(By by, String value) {
         smartWait();
-
+        LogUtils.info("Select Option with value : %s".formatted(value));
         Select select = new Select(getWebElement(by));
         select.selectByValue(value);
     }
 
+    /**
+     * Select option in dropdown by index(Select Option thuần)
+     *
+     * @param by             là locator của list item dạng đối tượng By
+     * @param index           giá trị cần chọn dạng index của item
+     */
     public static void selectOptionByIndex(By by, int index) {
         smartWait();
-
+        LogUtils.info("Select Option with index : %s".formatted(index));
         Select select = new Select(getWebElement(by));
         select.selectByIndex(index);
     }
 
-    public static void verifyOptionTotal(By element, int total) {
+    /**
+     * Verify total options in dropdown(Select Option thuần)
+     *
+     * @param by         là locator của list item dạng đối tượng By
+     * @param total      giá trị cần chọn dạng Text của item
+     */
+    public static void verifyOptionTotal(By by, int total) {
         smartWait();
 
-        Select select = new Select(getWebElement(element));
+        Select select = new Select(getWebElement(by));
         Assert.assertEquals(total, select.getOptions().size());
     }
 
+    /**
+     * Verify select option in dropdown by text (Select Option thuần)
+     *
+     * @param by             là locator của list item dạng đối tượng By
+     * @param text           giá trị cần chọn dạng Text của item
+     */
     public static boolean verifySelectedByText(By by, String text) {
         sleep(WAIT_SLEEP_STEP);
 
@@ -579,6 +625,12 @@ public class WebUI {
         return select.getFirstSelectedOption().getText().equals(text);
     }
 
+    /**
+     * Verify select option in dropdown by value(Select Option thuần)
+     *
+     * @param by              là locator của list item dạng đối tượng By
+     * @param optionValue     giá trị cần chọn dạng Text của item
+     */
     public static boolean verifySelectedByValue(By by, String optionValue) {
         sleep(WAIT_SLEEP_STEP);
 
@@ -587,6 +639,12 @@ public class WebUI {
         return select.getFirstSelectedOption().getAttribute("value").equals(optionValue);
     }
 
+    /**
+     * Verify total option in dropdown(Select Option thuần)
+     *
+     * @param by         là locator của list item dạng đối tượng By
+     * @param index      giá trị cần chọn dạng Text của item
+     */
     public static boolean verifySelectedByIndex(By by, int index) {
         sleep(WAIT_SLEEP_STEP);
 
@@ -601,6 +659,47 @@ public class WebUI {
             res = false;
         }
         return res;
+    }
+
+    /**
+     * Verify an option text exists in dropdown(Select Option thuần)
+     *
+     * @param by         là locator của list item dạng đối tượng By
+     * @param text       giá trị cần chọn dạng Text của item
+     * @return           true/false
+     */
+    public static boolean verifyOptionExitInSelect(By by, String text){
+        sleep(WAIT_SLEEP_STEP);
+
+        boolean res =  false;
+        Select select = new Select(getWebElement(by));
+        List<WebElement> elements = select.getOptions();
+        for(WebElement element: elements){
+            LogUtils.info("Option: " + element.getText());
+            if(element.getText().trim().equals(text.trim())){
+                res = true;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * Get all option text exist in dropdown(Select Option thuần)
+     *
+     * @param by         là locator của list item dạng đối tượng By
+     * @return           All options text in dropdown
+     */
+    public static List<String> getAllOptionsExitInSelect(By by){
+        sleep(WAIT_SLEEP_STEP);
+
+        List<String> allOptions = new ArrayList<String>();
+        Select select = new Select(getWebElement(by));
+        List<WebElement> elements = select.getOptions();
+        for(WebElement element: elements){
+            allOptions.add(element.getText().trim());
+        }
+        LogUtils.info("All Options: " + allOptions);
+        return allOptions;
     }
 
     //Handle frame iframe
@@ -1548,7 +1647,6 @@ public class WebUI {
         try {
             Actions action = new Actions(DriverManager.getDriver());
             action.dragAndDrop(getWebElement(fromElement), getWebElement(toElement)).perform();
-            //action.clickAndHold(getWebElement(fromElement)).moveToElement(getWebElement(toElement)).release(getWebElement(toElement)).build().perform();
             return true;
         } catch (Exception e) {
             LogUtils.info(e.getMessage());

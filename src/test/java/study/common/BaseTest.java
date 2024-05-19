@@ -71,7 +71,7 @@ public class BaseTest {
     }
 
     //Đóng browser
-    @AfterMethod
+//    @AfterMethod
     public void closeDriver() {
         sleep(10);
         System.out.println("Closing browser...");
