@@ -14,9 +14,9 @@ public class EmailConfig {
     public static final String SERVER = "smtp.gmail.com";
     public static final String PORT = "587";
 
-    public static final String FROM = "spectos.test@gmail.com";
+    public static final String FROM = "test@gmail.com";
     public static final String PASSWORD = "alwmmstlwimbsfng";
 
-    public static final String[] TO = {"bui.thi.binh@spectos.com"};
+    public static final String[] TO = {"bui.binh.k56@gmail.com"};
     public static final String SUBJECT = REPORT_TITLE;
 }

@@ -1,18 +1,13 @@
 package study.listeners;
 
 import study.driver.DriverManager;
-//import spectos.enums.CategoryType;
 import study.helpers.CaptureHelpers;
 import study.helpers.PropertiesHelpers;
-//import spectos.helpers.ScreenRecoderHelpers;
 import study.keywords.WebUI;
 import study.report.AllureManager;
 import study.report.ExtentReportManager;
-//import spectos.utils.BrowserInfoUtils;
-//import spectos.utils.EmailSendUtils;
 import study.utils.EmailSendUtils;
 import study.utils.LogUtils;
-//import spectos.utils.ZipUtils;
 import com.aventstack.extentreports.Status;
 import org.testng.*;
 

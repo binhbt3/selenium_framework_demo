@@ -21,9 +21,9 @@ import java.util.regex.Pattern;
 public class testSendReadTestMail extends BaseTest{
 
     public void sendEmail(String to, String subject, String body){
-        final String from = "doiquocan@gmail.com"; // Your email address
-        final String username = "doiquocan@gmail.com"; // Your email username
-        final String password = "jppv vzet rxui wkth";    // Your app password (see how to generate: https://www.youtube.com/watch?v=weA4yBSUMXs)
+        final String from = "your-email@gmail.com"; // Your email address
+        final String username = "your-email@gmail.com"; // Your email username
+        final String password = "your app password";    // Your app password (see how to generate: https://www.youtube.com/watch?v=weA4yBSUMXs)
 
         String host = "smtp.gmail.com";  // SMTP server
 
@@ -55,7 +55,7 @@ public class testSendReadTestMail extends BaseTest{
     }
 
     public void readEmail(){
-        String apiKey = "760d66b6-3840-4e96-af87-695a48035828"; // Replace with your Testmail.app API key
+        String apiKey = "your api key"; // Replace with your Testmail.app API key
         String inboxId = "397r8"; // Replace with your Testmail.app inbox ID
 
         try {
@@ -89,7 +89,7 @@ public class testSendReadTestMail extends BaseTest{
     }
 
     public String readLatestEmail() {
-        String apiKey = "760d66b6-3840-4e96-af87-695a48035828"; // Replace with your Testmail.app API key
+        String apiKey = "your api key"; // Replace with your Testmail.app API key
         // this key took from: https://testmail.app/console#apikeys (login with bui.binh.k56@gmail.com)
         String inboxId = "397r8"; // Replace with your Testmail.app inbox ID
 

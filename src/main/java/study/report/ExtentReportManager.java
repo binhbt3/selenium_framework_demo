@@ -2,11 +2,7 @@ package study.report;
 
 import study.constants.FrameworkConstants;
 import study.driver.DriverManager;
-//import spectos.enums.AuthorType;
-//import spectos.enums.CategoryType;
 import study.utils.DateUtils;
-//import spectos.utils.IconUtils;
-//import spectos.utils.ReportUtils;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
