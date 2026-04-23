@@ -2,12 +2,13 @@ package study.projects.greenkart.testcases;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import study.common.BaseTest;
 import study.keywords.WebUI;
 import study.projects.common.pages.GoogleMailPageCommon;
 
 import java.io.File;
 
-public class testDemo {
+public class testDemo extends BaseTest {
     @Test
     public void uploadFileWithLocalForm() {
         WebUI.getURL("https://easyupload.io/");

@@ -1,8 +1,8 @@
 package study.keywords;
 
-
-import org.openqa.selenium.devtools.v113.network.Network;
-import org.openqa.selenium.devtools.v113.network.model.Headers;
+import javax.annotation.Nullable; // Import từ thư viện JSR 305
+import org.openqa.selenium.devtools.v147.network.Network;
+import org.openqa.selenium.devtools.v147.network.model.Headers;
 import study.constants.FrameworkConstants;
 import study.driver.DriverManager;
 
@@ -36,7 +36,6 @@ import org.openqa.selenium.print.PrintOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 
-import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.InputEvent;
